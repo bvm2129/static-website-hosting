@@ -25,4 +25,4 @@ jobs:
 
       # Step 4: Build Docker image
       - name: Build Docker image
-        run: docker build -t my-app:latest .
+        run: docker build -t my-app:1010 .
