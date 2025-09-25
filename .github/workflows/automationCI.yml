@@ -1,0 +1,28 @@
+name: CI Pipeline
+
+on:
+  push:               # runs whenever code is pushed
+    branches:
+      - main
+  workflow_dispatch:   # allows manual trigger too
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout repo
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Show latest commit info (detect latest change)
+      - name: Show latest commit
+        run: git log -1 --oneline
+
+      # Step 3: Confirm we’re in repo folder
+      - name: List files
+        run: ls -la
+
+      # Step 4: Build Docker image
+      - name: Build Docker image
+        run: docker build -t my-app:latest .
