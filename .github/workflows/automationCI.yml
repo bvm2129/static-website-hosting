@@ -27,9 +27,9 @@ jobs:
       - name: Build Docker image
         run: docker build -t my-app:1010 .
 
-      # Step 5: Puch image to Docker Hub
+      # Step 5: Push image to Docker Hub
       - name: Login to Dokcer Hub
         run: echo "${{secrets.DOCKER_HUB_PASSWORD}}" | docker login -u "${{secrets.DOCKER_HUB_USERNAME}}" --password-stdin
 
       - name: Push Docker Image
-        run: docker push "${{secrets.DOCKER_HUB_USERNAME}}"/pipeline-output:1010
+        run: docker push ${{secrets.DOCKER_HUB_USERNAME}}/pipeline-output:1010
