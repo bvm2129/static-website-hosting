@@ -4,7 +4,7 @@ on:
   push:               # runs whenever code is pushed
     branches:
       - main
-  workflow_dispatch:   # allows manual trigger too
+  # workflow_dispatch:   # allows manual trigger too
 
 jobs:
   build:
